@@ -5,6 +5,7 @@ local configs = {
   italic = 0,
   underline = 1,
   undercurl = 1,
+  inverse = 1,
   contrast_dark = "medium",
   contrast_light = "medium",
   italicize_comments = 1,
