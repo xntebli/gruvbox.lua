@@ -1,6 +1,5 @@
 local theme = require "gruvbox.theme"
 local util = require "gruvbox.util"
-local colors = require "gruvbox.colors"
 
 local M = {}
 
@@ -11,7 +10,9 @@ M.load = function()
 
   vim.g.colors_name = "gruvbox"
 
+  local colors = require "gruvbox.colors"
   local groups = theme.groups(colors)
+
   util.syntax(groups)
   util.terminal(colors)
 end

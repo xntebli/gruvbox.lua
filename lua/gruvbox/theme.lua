@@ -12,7 +12,9 @@ theme.groups = function(colors)
   local tabline_sel = util.get_color_from_opt(vim.g.gruvbox_tabline_sel, "green", colors)
 
   return {
+    --
     -- Gruvbox Hi Groups
+    --
     GruvboxFg0 = { fg = colors.fg0 },
     GruvboxFg1 = { fg = colors.fg1 },
     GruvboxFg2 = { fg = colors.fg2 },
@@ -56,7 +58,9 @@ theme.groups = function(colors)
     GruvboxAquaUnderline = { gui = styles.undercurl, sp = colors.aqua },
     GruvboxOrangeUnderline = { gui = styles.undercurl, sp = colors.orange },
 
-    --  General UI
+    --
+    -- General UI
+    --
     Normal = { fg = colors.fg1, bg = colors.bg0 },
 
     CursorLine = { bg = colors.bg1 },
@@ -103,24 +107,16 @@ theme.groups = function(colors)
     Question = "GruvboxOrangeBold",
     WarningMsg = "GruvboxRedBold",
 
+    LineNr = { fg = colors.bg4, bg = number_column },
+    SignColumn = { bg = colors.sign_column },
     Folded = { fg = colors.gray, bg = colors.bg1, gui = styles.italic },
     FoldColumn = { fg = colors.gray, bg = colors.bg1 },
-    SignColumn = { bg = colors.sign_column },
-    LineNr = { fg = colors.bg4, bg = number_column },
-
-    Tag = "GruvboxAquaBold",
-    Delimiter = "GruvboxFg3",
-    Debug = "GruvboxRed",
-    Bold = { gui = styles.bold },
-    Italic = { gui = styles.italic },
-    Ignore = {},
 
     -- Gutter
     Cursor = { gui = styles.inverse },
     vCursor = "Cursor",
     iCursor = "Cursor",
     lCursor = "Cursor",
-    CursorIM = "Cursor",
 
     -- Syntax Highlighting
     Special = util.is_true(vim.g.gruvbox_improved_strings) and {
@@ -130,7 +126,7 @@ theme.groups = function(colors)
     } or "GruvboxOrange",
 
     Comment = { fg = colors.gray, gui = styles.italic_comments },
-    Todo = { fg = colors.fg0, gui = table.concat({ styles.bold, styles.italic }, ",") },
+    Todo = { fg = "fg", gui = table.concat({ styles.bold, styles.italic }, ",") },
     Error = { fg = colors.red, gui = table.concat({ styles.bold, styles.inverse }, ",") },
 
     Statement = "GruvboxRed",
@@ -160,17 +156,14 @@ theme.groups = function(colors)
       bg = colors.bg1,
       gui = styles.italic_strings,
     },
-
     Boolean = "GruvboxPurple",
     Number = "GruvboxPurple",
     Float = "GruvboxPurple",
-    FloatBorder = "Comment",
 
     Type = "GruvboxYellow",
     StorageClass = "GruvboxOrange",
     Structure = "GruvboxAqua",
     Typedef = "GruvboxYellow",
-    SpecialChar = "GruvboxRed",
 
     -- Completion Menu
     Pmenu = { fg = colors.fg1, bg = colors.bg2 },
@@ -193,6 +186,110 @@ theme.groups = function(colors)
     SpellLocal = "GruvboxAquaUnderline",
     SpellRare = "GruvboxPurpleUnderline",
 
+    Tag = "GruvboxAquaBold",
+    Delimiter = "GruvboxFg3",
+    Debug = "GruvboxRed",
+    Bold = { gui = styles.bold },
+    Italic = { gui = styles.italic },
+    Ignore = {},
+    FloatBorder = "Comment",
+    SpecialChar = "GruvboxRed",
+
+    --
+    --  Plugins
+    --
+
+    -- LSP
+    DiagnosticError = "GruvboxRed",
+    DiagnosticSignError = "GruvboxRedSign",
+    DiagnosticUnderlineError = "GruvboxRedUnderline",
+    DiagnosticWarn = "GruvboxYellow",
+    DiagnosticSignWarn = "GruvboxYellowSign",
+    DiagnosticUnderlineWarn = "GruvboxYellowUnderline",
+    DiagnosticInfo = "GruvboxBlue",
+    DiagnosticSignInfo = "GruvboxBlueSign",
+    DiagnosticUnderlineInfo = "GruvboxBlueUnderline",
+    DiagnosticHint = "GruvboxAqua",
+    DiagnosticSignHint = "GruvboxAquaSign",
+    DiagnosticUnderlineHint = "GruvboxAquaUnderline",
+    DiagnosticFloatingError = "GruvboxRed",
+    DiagnosticFloatingWarn = "GruvboxOrange",
+    DiagnosticFloatingInfo = "GruvboxBlue",
+    DiagnosticFloatingHint = "GruvboxAqua",
+    DiagnosticVirtualTextError = "GruvboxRed",
+    DiagnosticVirtualTextWarn = "GruvboxYellow",
+    DiagnosticVirtualTextInfo = "GruvboxBlue",
+    DiagnosticVirtualTextHint = "GruvboxAqua",
+    LspReferenceText = "GruvboxYellowBold",
+    LspReferenceRead = "GruvboxYellowBold",
+    LspReferenceWrite = "GruvboxOrangeBold",
+    LspCodeLens = "GruvboxGray",
+
+    -- Treesitter
+    TSNone = {},
+    TSError = {},
+    TSKeywordOperator = "GruvboxRed",
+    TSVariable = "GruvboxFg1",
+    TSTextReference = { fg = colors.gray, gui = styles.underline },
+    TSTag = "GruvboxOrange",
+    TSTagDelimiter = "GruvboxGreen",
+
+    -- GitCommit
+    gitcommitSelectedFile = "GruvboxGreen",
+    gitcommitDiscardedFile = "GruvboxRed",
+
+    -- netrw
+    netrwDir = "GruvboxAqua",
+    netrwClassify = "GruvboxAqua",
+    netrwLink = "GruvboxGray",
+    netrwSymLink = "GruvboxFg1",
+    netrwExe = "GruvboxYellow",
+    netrwComment = "GruvboxGray",
+    netrwList = "GruvboxBlue",
+    netrwHelpCmd = "GruvboxAqua",
+    netrwCmdSep = "GruvboxFg3",
+    netrwVersion = "GruvboxGreen",
+
+    -- Telescope
+    TelescopeNormal = "GruvboxFg1",
+    TelescopeSelection = "GruvboxOrangeBold",
+    TelescopeSlectionCaret = "GruvboxRed",
+    TelescopeMultiSelection = "GruvboxGray",
+    TelescopeBorder = "FloatBorder",
+    TelescopeMatching = "GruvboxBlue",
+    TelescopePromptPrefix = "GruvboxRed",
+    TelescopePrompt = "TelescopeNormal",
+
+    -- vim-dirvish
+    DirvishPathTail = "GruvboxAqua",
+    DirvishArg = "GruvboxYellow",
+
+    -- neovim
+    healthError = { fg = colors.bg0, bg = colors.red },
+    healthSuccess = { fg = colors.bg0, bg = colors.green },
+    healthWarning = { fg = colors.bg0, bg = colors.yellow },
+
+    -- gitsigns.nvim
+    GitSignsAdd = "GruvboxGreenSign",
+    GitSignsChange = "GruvboxAquaSign",
+    GitSignsDelete = "GruvboxRedSign",
+
+    -- nvim-cmp
+    CmpItemAbbr = "GruvboxFg0",
+    CmpItemAbbrDeprecated = "GruvboxFg0",
+    CmpItemAbbrMatch = "GruvboxBlue",
+    CmpItemAbbrMatchFuzzy = { gui = styles.underline, fg = colors.aqua },
+    CmpItemKind = "GruvboxOrange",
+    CmpItemMenu = "GruvboxGray",
+    CmpDocumentation = { fg = colors.fg0, bg = colors.bg0 },
+    CmpDocumentationBorder = { fg = colors.gray, bg = colors.bg0 },
+
+    -- symbols-outline.nvim
+    FocusedSymbol = { fg = colors.yellow, gui = styles.bold },
+
+    --
+    --  Filetypes
+    --
     -- html
     htmlTag = "GruvboxAquaBold",
     htmlEndTag = "GruvboxAquaBold",
@@ -202,25 +299,25 @@ theme.groups = function(colors)
     htmlSpecialTagName = "GruvboxBlue",
     htmlLink = { fg = colors.fg4, gui = styles.underline },
     htmlSpecialChar = "GruvboxRed",
-    htmlBold = { fg = colors.fg0, bg = colors.bg0, gui = styles.bold },
+    htmlBold = { fg = "fg", bg = "bg", gui = styles.bold },
     htmlBoldUnderline = {
-      fg = colors.fg0,
-      bg = colors.bg0,
+      fg = "fg",
+      bg = "bg",
       gui = table.concat({ styles.bold, styles.underline }, ","),
     },
-    htmlBoldItalic = { fg = colors.fg0, bg = colors.bg0, gui = table.concat({ styles.bold, styles.italic }, ",") },
+    htmlBoldItalic = { fg = "fg", bg = "bg", gui = table.concat({ styles.bold, styles.italic }, ",") },
     htmlBoldUnderlineItalic = {
-      fg = colors.fg0,
-      bg = colors.bg0,
+      fg = "fg",
+      bg = "bg",
       gui = table.concat({ styles.bold, styles.underline, styles.italic }, ","),
     },
-    htmlUnderline = { fg = colors.fg0, bg = colors.bg0, gui = styles.underline },
+    htmlUnderline = { fg = "fg", bg = "bg", gui = styles.underline },
     htmlUnderlineItalic = {
-      fg = colors.fg0,
-      bg = colors.bg0,
+      fg = "fg",
+      bg = "bg",
       gui = table.concat({ styles.underline, styles.italic }, ","),
     },
-    htmlItalic = { fg = colors.fg0, bg = colors.bg0, gui = styles.italic },
+    htmlItalic = { fg = "fg", bg = "bg", gui = styles.italic },
 
     -- Markdown
     markdownItalic = { fg = colors.fg3, gui = styles.italic },
@@ -252,180 +349,6 @@ theme.groups = function(colors)
     markdownLinkText = { fg = colors.gray, gui = styles.underline },
     markdownIdDeclaration = "markdownLinkText",
 
-    -- signature
-    SignatureMarkText = "GruvboxBlueSign",
-    SignatureMarkerText = "GruvboxPurpleSign",
-
-    -- vim-fugitive
-    gitcommitSelectedFile = "GruvboxGreen",
-    gitcommitDiscardedFile = "GruvboxRed",
-    gitcommitUntrackedFile = "GruvboxRed",
-
-    -- neovim
-    healthError = { fg = colors.bg0, bg = colors.red },
-    healthSuccess = { fg = colors.bg0, bg = colors.green },
-    healthWarning = { fg = colors.bg0, bg = colors.yellow },
-
-    -- netrw
-    netrwDir = "GruvboxAqua",
-    netrwClassify = "GruvboxAqua",
-    netrwLink = "GruvboxGray",
-    netrwSymLink = "GruvboxFg1",
-    netrwExe = "GruvboxYellow",
-    netrwComment = "GruvboxGray",
-    netrwList = "GruvboxBlue",
-    netrwHelpCmd = "GruvboxAqua",
-    netrwCmdSep = "GruvboxFg3",
-    netrwVersion = "GruvboxGreen",
-
-    -- LSP
-    DiagnosticError = "GruvboxRed",
-    DiagnosticSignError = "GruvboxRedSign",
-    DiagnosticUnderlineError = "GruvboxRedUnderline",
-
-    DiagnosticWarn = "GruvboxYellow",
-    DiagnosticSignWarn = "GruvboxYellowSign",
-    DiagnosticUnderlineWarn = "GruvboxYellowUnderline",
-
-    DiagnosticInfo = "GruvboxBlue",
-    DiagnosticSignInfo = "GruvboxBlueSign",
-    DiagnosticUnderlineInfo = "GruvboxBlueUnderline",
-
-    DiagnosticHint = "GruvboxAqua",
-    DiagnosticSignHint = "GruvboxAquaSign",
-    DiagnosticUnderlineHint = "GruvboxAquaUnderline",
-
-    DiagnosticFloatingError = "GruvboxRed",
-    DiagnosticFloatingWarn = "GruvboxOrange",
-    DiagnosticFloatingInfo = "GruvboxBlue",
-    DiagnosticFloatingHint = "GruvboxAqua",
-
-    DiagnosticVirtualTextError = "GruvboxRed",
-    DiagnosticVirtualTextWarn = "GruvboxYellow",
-    DiagnosticVirtualTextInfo = "GruvboxBlue",
-    DiagnosticVirtualTextHint = "GruvboxAqua",
-
-    -- NOTE: Backward Compatibilty prior to (https://github.com/neovim/neovim/pull/15585)
-    LspDiagnosticsDefaultError = "GruvboxRed",
-    LspDiagnosticsSignError = "GruvboxRedSign",
-    LspDiagnosticsUnderlineError = "GruvboxRedUnderline",
-
-    LspDiagnosticsDefaultWarning = "GruvboxYellow",
-    LspDiagnosticsSignWarning = "GruvboxYellowSign",
-    LspDiagnosticsUnderlineWarning = "GruvboxYellowUnderline",
-
-    LspDiagnosticsDefaultInformation = "GruvboxBlue",
-    LspDiagnosticsSignInformation = "GruvboxBlueSign",
-    LspDiagnosticsUnderlineInformation = "GruvboxBlueUnderline",
-
-    LspDiagnosticsDefaultHint = "GruvboxAqua",
-    LspDiagnosticsSignHint = "GruvboxAquaSign",
-    LspDiagnosticsUnderlineHint = "GruvboxAquaUnderline",
-
-    LspDiagnosticsFloatingError = "GruvboxRed",
-    LspDiagnosticsFloatingWarning = "GruvboxOrange",
-    LspDiagnosticsFloatingInformation = "GruvboxBlue",
-    LspDiagnosticsFloatingHint = "GruvboxAqua",
-
-    LspDiagnosticsVirtualTextError = "GruvboxRed",
-    LspDiagnosticsVirtualTextWarning = "GruvboxYellow",
-    LspDiagnosticsVirtualTextInformation = "GruvboxBlue",
-    LspDiagnosticsVirtualTextHint = "GruvboxAqua",
-
-    LspReferenceText = "GruvboxYellowBold",
-    LspReferenceRead = "GruvboxYellowBold",
-    LspReferenceWrite = "GruvboxOrangeBold",
-
-    LspCodeLens = "GruvboxGray",
-
-    -- nvim-treesitter
-    TSNone = {},
-    TSError = {},
-    TSKeywordOperator = "GruvboxRed",
-    TSVariable = "GruvboxFg1",
-    TSTextReference = { fg = colors.gray, gui = styles.underline },
-    TSTag = "GruvboxOrange",
-    TSTagDelimiter = "GruvboxGreen",
-
-    -- telescope.nvim
-    TelescopeNormal = "GruvboxFg1",
-    TelescopeSelection = "GruvboxOrangeBold",
-    TelescopeSlectionCaret = "GruvboxRed",
-    TelescopeMultiSelection = "GruvboxGray",
-    TelescopeBorder = "TelescopeNormal",
-    TelescopePromptBorder = "TelescopeNormal",
-    TelescopeResultsBorder = "TelescopeNormal",
-    TelescopePreviewBorder = "TelescopeNormal",
-    TelescopeMatching = "GruvboxBlue",
-    TelescopePromptPrefix = "GruvboxRed",
-    TelescopePrompt = "TelescopeNormal",
-
-    -- lspsaga.nvim
-    LspSagaDiagnosticBorder = "NormalNC",
-    LspSagaDiagnosticHeader = "GruvboxRed",
-    LspSagaDiagnosticTruncateLine = "NormalNC",
-    LspFloatWinBorder = "NormalNC",
-    LspSagaBorderTitle = "Title",
-    TargetWord = "Error",
-    ReferencesCount = "Title",
-    ReferencesIcon = "Special",
-    DefinitionCount = "Title",
-    TargetFileName = "Comment",
-    DefinitionIcon = "Special",
-    ProviderTruncateLine = "NormalNC",
-    SagaShadow = "GruvboxBg0",
-    LspSagaFinderSelection = "Search",
-    DiagnosticTruncateLine = "NormalNC",
-    DiagnosticWarning = "DiagnosticWarn",
-    DiagnosticInformation = "DiagnosticInfo",
-    DefinitionPreviewTitle = "Title",
-    LspSagaShTruncateLine = "NormalNC",
-    LspSagaDocTruncateLine = "NormalNC",
-    LineDiagTuncateLine = "NormalNC",
-    LspSagaCodeActionTitle = "Title",
-    LspSagaCodeActionTruncateLine = "NormalNC",
-    LspSagaCodeActionContent = "Normal",
-    LspSagaRenamePromptPrefix = "GruvboxFg2",
-    LspSagaRenameBorder = { gui = styles.bold },
-    LspSagaHoverBorder = { gui = styles.bold },
-    LspSagaSignatureHelpBorder = { gui = styles.bold },
-    LspSagaCodeActionBorder = { gui = styles.bold },
-    LspSagaAutoPreview = {},
-    LspSagaDefPreviewBorder = { gui = styles.bold },
-    LspLinesDiagBorder = { gui = styles.bold },
-
-    -- termdebug
-    debugPC = { bg = colors.faded_blue },
-    debugBreakpoint = "GruvboxRedSign",
-
-    -- vim-dirvish
-    DirvishPathTail = "GruvboxAqua",
-    DirvishArg = "GruvboxYellow",
-
-    -- NvimTree
-    NvimTreeSymlink = "GruvboxFg0",
-    NvimTreeFolderName = "GruvboxGreen",
-    NvimTreeRootFolder = "GruvboxGray",
-    NvimTreeFolderIcon = "GruvboxOrange",
-    NvimTreeEmptyFolderName = "GruvboxGreen",
-    NvimTreeOpenedFolderName = "GruvboxGreen",
-    NvimTreeExecFile = "GruvboxFg0",
-    NvimTreeOpenedFile = "GruvboxFg0",
-    NvimTreeSpecialFile = "GruvboxFg0",
-    NvimTreeImageFile = "GruvboxFg0",
-    NvimTreeMarkdownFile = "GruvboxFg0",
-    NvimTreeIndentMarker = "GruvboxGray",
-    NvimTreeGitDirty = "GruvboxYellow",
-    NvimTreeGitStaged = "GruvboxBlue",
-    NvimTreeGitMerge = "GruvboxOrange",
-    NvimTreeGitRenamed = "GruvboxPurple",
-    NvimTreeGitNew = "GruvboxAqua",
-    NvimTreeGitDeleted = "GruvboxRed",
-    NvimTreeLspDiagnosticsError = "GruvboxRedSign",
-    NvimTreeLspDiagnosticsWarning = "GruvboxYellowSign",
-    NvimTreeLspDiagnosticsInformation = "GruvboxBlueSign",
-    NvimTreeLspDiagnosticsHint = "GruvboxGreenSign",
-
     -- diff
     diffAdded = "GruvboxGreen",
     diffRemoved = "GruvboxRed",
@@ -433,25 +356,6 @@ theme.groups = function(colors)
     diffFile = "GruvboxOrange",
     diffNewFile = "GruvboxYellow",
     diffLine = "GruvboxBlue",
-
-    -- gitsigns.nvim
-    GitSignsAdd = "GruvboxGreenSign",
-    GitSignsChange = "GruvboxAquaSign",
-    GitSignsDelete = "GruvboxRedSign",
-    GitSignsCurrentLineBlame = "NonText",
-
-    -- nvim-cmp
-    CmpItemAbbr = "GruvboxFg0",
-    CmpItemAbbrDeprecated = "GruvboxFg0",
-    CmpItemAbbrMatch = "GruvboxBlue",
-    CmpItemAbbrMatchFuzzy = { gui = styles.underline, fg = colors.aqua },
-    CmpItemKind = "GruvboxOrange",
-    CmpItemMenu = "GruvboxGray",
-    CmpDocumentation = { fg = colors.fg0, bg = colors.bg0 },
-    CmpDocumentationBorder = { fg = colors.gray, bg = colors.bg0 },
-
-    -- symbols-outline.nvim
-    FocusedSymbol = { fg = colors.yellow, gui = styles.bold },
   }
 end
 
