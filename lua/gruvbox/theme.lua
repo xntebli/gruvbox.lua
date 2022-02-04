@@ -134,7 +134,7 @@ theme.groups = function(colors)
     Repeat = "GruvboxRed",
     Label = "GruvboxRed",
     Exception = "GruvboxRed",
-    Operator = "GruvboxFg1",
+    Operator = { fg = colors.orange, bg = colors.NONE, gui = styles.italicize_operators },
     Keyword = "GruvboxRed",
 
     Identifier = "GruvboxBlue",
@@ -280,7 +280,7 @@ theme.groups = function(colors)
     CmpItemAbbrMatch = "GruvboxBlue",
     CmpItemAbbrMatchFuzzy = { gui = styles.underline, fg = colors.aqua },
     CmpItemKind = "GruvboxOrange",
-    CmpItemMenu = "GruvboxGray",
+    CmpItemMenu = "GruvboxOrange",
     CmpDocumentation = { fg = colors.fg0, bg = colors.bg0 },
     CmpDocumentationBorder = { fg = colors.gray, bg = colors.bg0 },
 

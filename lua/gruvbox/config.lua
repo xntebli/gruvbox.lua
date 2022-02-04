@@ -37,6 +37,7 @@ local styles = {
   invert_tabline = nil,
   italic_comments = "italic",
   italic_strings = nil,
+  italicize_operators = nil,
 }
 
 if not util.is_true(vim.g.gruvbox_bold) then
@@ -77,6 +78,10 @@ end
 
 if util.is_true(vim.g.gruvbox_italicize_strings) then
   styles.italic_strings = "italic"
+end
+
+if util.is_true(vim.g.gruvbox_italicize_operators) then
+  styles.italicize_operators = "italic"
 end
 
 return {
