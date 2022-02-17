@@ -10,13 +10,13 @@ local configs = {
   contrast_light = "medium",
   italicize_comments = 1,
   italicize_strings = 0,
+  italicize_operators = 0,
   invert_selection = 1,
   invert_signs = 0,
   invert_indent_guides = 0,
   invert_tabline = 0,
   improved_strings = 0,
   improved_warnings = 0,
-  -- guisp_fallback = "NONE",
 }
 
 for k, val in pairs(configs) do

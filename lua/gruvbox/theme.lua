@@ -186,15 +186,6 @@ theme.groups = function(colors)
     SpellLocal = "GruvboxAquaUnderline",
     SpellRare = "GruvboxPurpleUnderline",
 
-    Tag = "GruvboxAquaBold",
-    Delimiter = "GruvboxFg3",
-    Debug = "GruvboxRed",
-    Bold = { gui = styles.bold },
-    Italic = { gui = styles.italic },
-    Ignore = {},
-    FloatBorder = "Comment",
-    SpecialChar = "GruvboxRed",
-
     --
     --  Plugins
     --
@@ -226,13 +217,7 @@ theme.groups = function(colors)
     LspCodeLens = "GruvboxGray",
 
     -- Treesitter
-    TSNone = {},
-    TSError = {},
     TSKeywordOperator = "GruvboxRed",
-    TSVariable = "GruvboxFg1",
-    TSTextReference = { fg = colors.gray, gui = styles.underline },
-    TSTag = "GruvboxOrange",
-    TSTagDelimiter = "GruvboxGreen",
 
     -- GitCommit
     gitcommitSelectedFile = "GruvboxGreen",
@@ -255,21 +240,21 @@ theme.groups = function(colors)
     TelescopeSelection = "GruvboxOrangeBold",
     TelescopeSlectionCaret = "GruvboxRed",
     TelescopeMultiSelection = "GruvboxGray",
-    TelescopeBorder = "FloatBorder",
+    TelescopeBorder = "TelescopeNormal",
     TelescopeMatching = "GruvboxBlue",
     TelescopePromptPrefix = "GruvboxRed",
     TelescopePrompt = "TelescopeNormal",
 
-    -- vim-dirvish
+    -- Dirvish
     DirvishPathTail = "GruvboxAqua",
     DirvishArg = "GruvboxYellow",
 
-    -- neovim
+    -- Neovim
     healthError = { fg = colors.bg0, bg = colors.red },
     healthSuccess = { fg = colors.bg0, bg = colors.green },
     healthWarning = { fg = colors.bg0, bg = colors.yellow },
 
-    -- gitsigns.nvim
+    -- Gitsigns
     GitSignsAdd = "GruvboxGreenSign",
     GitSignsChange = "GruvboxAquaSign",
     GitSignsDelete = "GruvboxRedSign",
@@ -278,14 +263,9 @@ theme.groups = function(colors)
     CmpItemAbbr = "GruvboxFg0",
     CmpItemAbbrDeprecated = "GruvboxFg0",
     CmpItemAbbrMatch = "GruvboxBlue",
-    CmpItemAbbrMatchFuzzy = { gui = styles.underline, fg = colors.aqua },
+    CmpItemAbbrMatchFuzzy = "GruvboxBlue",
     CmpItemKind = "GruvboxOrange",
-    CmpItemMenu = "GruvboxOrange",
-    CmpDocumentation = { fg = colors.fg0, bg = colors.bg0 },
-    CmpDocumentationBorder = { fg = colors.gray, bg = colors.bg0 },
-
-    -- symbols-outline.nvim
-    FocusedSymbol = { fg = colors.yellow, gui = styles.bold },
+    CmpItemMenu = "GruvboxGray",
 
     --
     --  Filetypes
