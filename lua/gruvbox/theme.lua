@@ -267,6 +267,13 @@ theme.groups = function(colors)
     CmpItemKind = "GruvboxOrange",
     CmpItemMenu = "GruvboxGray",
 
+    -- lir.nvim
+    LirEmptyDirText = "GruvboxBlueSign",
+
+    LirGitStatusBracket = "GruvboxGray",
+    LirGitStatusUntracked = "GruvboxGray",
+    LirGitStatusIgnored = "GruvboxGray",
+
     --
     --  Filetypes
     --
