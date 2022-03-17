@@ -119,7 +119,7 @@ theme.groups = function(colors)
     lCursor = "Cursor",
 
     -- Syntax Highlighting
-    Special = util.is_true(vim.g.gruvbox_improved_strings) and {
+    Special = vim.g.gruvbox_improved_strings and {
       fg = colors.orange,
       bg = colors.bg1,
       gui = styles.italic_strings,
@@ -148,7 +148,7 @@ theme.groups = function(colors)
 
     Constant = "GruvboxPurple",
     Character = "GruvboxPurple",
-    String = not util.is_true(vim.g.gruvbox_improved_strings) and {
+    String = not vim.g.gruvbox_improved_strings and {
       fg = colors.green,
       gui = styles.italic_strings,
     } or {
@@ -178,7 +178,7 @@ theme.groups = function(colors)
     DiffText = { fg = colors.yellow, bg = colors.bg0, gui = styles.inverse },
 
     -- Spelling
-    SpellCap = not util.is_true(vim.g.gruvbox_improved_warnings) and "GruvboxBlueUnderline" or {
+    SpellCap = not vim.g.gruvbox_improved_warnings and "GruvboxBlueUnderline" or {
       fg = colors.green,
       gui = table.concat({ styles.bold, styles.italic }, ","),
     },
@@ -269,7 +269,6 @@ theme.groups = function(colors)
 
     -- lir.nvim
     LirEmptyDirText = "GruvboxBlueSign",
-
     LirGitStatusBracket = "GruvboxGray",
     LirGitStatusUntracked = "GruvboxGray",
     LirGitStatusIgnored = "GruvboxGray",
@@ -277,64 +276,6 @@ theme.groups = function(colors)
     --
     --  Filetypes
     --
-    -- html
-    htmlTag = "GruvboxAquaBold",
-    htmlEndTag = "GruvboxAquaBold",
-    htmlTagName = "GruvboxBlue",
-    htmlArg = "GruvboxOrange",
-    htmlTagN = "GruvboxFg1",
-    htmlSpecialTagName = "GruvboxBlue",
-    htmlLink = { fg = colors.fg4, gui = styles.underline },
-    htmlSpecialChar = "GruvboxRed",
-    htmlBold = { fg = "fg", bg = "bg", gui = styles.bold },
-    htmlBoldUnderline = {
-      fg = "fg",
-      bg = "bg",
-      gui = table.concat({ styles.bold, styles.underline }, ","),
-    },
-    htmlBoldItalic = { fg = "fg", bg = "bg", gui = table.concat({ styles.bold, styles.italic }, ",") },
-    htmlBoldUnderlineItalic = {
-      fg = "fg",
-      bg = "bg",
-      gui = table.concat({ styles.bold, styles.underline, styles.italic }, ","),
-    },
-    htmlUnderline = { fg = "fg", bg = "bg", gui = styles.underline },
-    htmlUnderlineItalic = {
-      fg = "fg",
-      bg = "bg",
-      gui = table.concat({ styles.underline, styles.italic }, ","),
-    },
-    htmlItalic = { fg = "fg", bg = "bg", gui = styles.italic },
-
-    -- Markdown
-    markdownItalic = { fg = colors.fg3, gui = styles.italic },
-    markdownBold = { fg = colors.fg3, gui = styles.bold },
-    markdownBoldItalic = {
-      fg = colors.fg3,
-      gui = table.concat({ styles.bold, styles.italic }, ","),
-    },
-    markdownH1 = "GruvboxGreenBold",
-    markdownH2 = "markdownH1",
-    markdownH3 = "GruvboxYellowBold",
-    markdownH4 = "markdownH3",
-    markdownH5 = "GruvboxYellow",
-    markdownH6 = "markdownH5",
-    markdownCode = "GruvboxAqua",
-    markdownCodeBlock = "GruvboxAqua",
-    markdownCodeDelimiter = "GruvboxAqua",
-    markdownBlockquote = "GruvboxGray",
-    markdownListMarker = "GruvboxGray",
-    markdownOrderedListMarker = "GruvboxGray",
-    markdownRule = "GruvboxGray",
-    markdownHeadingRule = "GruvboxGray",
-    markdownUrlDelimiter = "GruvboxFg3",
-    markdownLinkDelimiter = "GruvboxFg3",
-    markdownLinkTextDelimiter = "GruvboxFg3",
-    markdownHeadingDelimiter = "GruvboxOrange",
-    markdownUrl = "GruvboxPurple",
-    markdownUrlTitleDelimiter = "GruvboxGreen",
-    markdownLinkText = { fg = colors.gray, gui = styles.underline },
-    markdownIdDeclaration = "markdownLinkText",
 
     -- diff
     diffAdded = "GruvboxGreen",

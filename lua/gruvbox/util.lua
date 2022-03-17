@@ -15,14 +15,6 @@ M.syntax = function(hlgroups)
   end
 end
 
-M.is_true = function(val)
-  if val == 0 or not val then
-    return false
-  end
-
-  return true
-end
-
 M.terminal = function(colors)
   vim.g.terminal_color_0 = colors.bg0
   vim.g.terminal_color_8 = colors.gray
@@ -42,8 +34,8 @@ M.terminal = function(colors)
   vim.g.terminal_color_15 = colors.fg1
 end
 
--- check if vim.g.gruvbox_* color exists in current palette, return default color
--- otherwise
+-- check if vim.g.gruvbox_* color exists in current palette,
+-- return default color otherwise
 M.get_color_from_opt = function(opt, default, colors)
   if opt == nil then
     return colors[default]

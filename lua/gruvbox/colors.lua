@@ -58,10 +58,6 @@ local aqua = colors.bright_aqua
 local orange = colors.bright_orange
 local gray = colors.gray
 
-if vim.o.background == nil then
-  vim.o.background = "dark"
-end
-
 -- swap colors if light mode
 if vim.o.background == "light" then
   bg0 = colors.light0
