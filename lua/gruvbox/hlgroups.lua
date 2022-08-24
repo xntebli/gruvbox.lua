@@ -126,7 +126,7 @@ M.setup = function(colors, config)
 
     --- Gutter: {{{
     LineNr = { fg = colors.bg4, bg = number_column },
-    SignColumn = { bg = colors.sign_column },
+    SignColumn = { bg = sign_column },
     Folded = { fg = colors.gray, bg = colors.bg1, italic = config.italic },
     FoldColumn = { fg = colors.gray, bg = colors.bg1 },
     --- }}}
@@ -145,7 +145,7 @@ M.setup = function(colors, config)
       italic = config.italic_strings,
     } or { link = "GruvboxOrange" },
 
-    Comment = { fg = colors.gray, italic = config.italic_comments },
+    Comment = { fg = colors.gray, italic = config.italicize_comments },
     Todo = { fg = colors.fg0, bold = config.bold, italic = config.italic },
     Error = { fg = colors.red, bold = config.bold, reverse = config.inverse },
 

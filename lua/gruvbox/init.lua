@@ -1,11 +1,3 @@
-local function set_highlights(hlgroups)
-  for group, colors in pairs(hlgroups) do
-    if not vim.tbl_isempty(colors) then
-      vim.api.nvim_set_hl(0, group, colors)
-    end
-  end
-end
-
 local M = {}
 
 M.config = {
@@ -15,7 +7,7 @@ M.config = {
   underline = true,
   undercurl = true,
   inverse = true,
-  italicize_comments = true,
+  italicize_comments = false,
   italicize_strings = false,
   italicize_operators = false,
   invert_selection = true,
@@ -35,6 +27,9 @@ M.config = {
 }
 
 function M.setup(config)
+  M.config.italicize_comments = config.italic or M.config.italic
+  M.config.invert_selection = M.config.inverse
+
   M.config = vim.tbl_extend("force", M.config, config or {})
 end
 
@@ -49,7 +44,9 @@ M.load = function()
   local colors = require("gruvbox.colors").setup()
   local hlgroups = require("gruvbox.hlgroups").setup(colors)
 
-  set_highlights(hlgroups)
+  for group, settings in pairs(hlgroups) do
+    vim.api.nvim_set_hl(0, group, settings)
+  end
 end
 
 return M
