@@ -351,8 +351,24 @@ M.setup = function(colors, config)
     healthError = { fg = colors.bg0, bg = colors.red },
     healthSuccess = { fg = colors.bg0, bg = colors.green },
     healthWarning = { fg = colors.bg0, bg = colors.yellow },
+
+    Winbar = { link = "StatusLine" },
+    WinbarNC = { link = "StatusLineNC" },
     --}}}
+
+    -- harpoon {{{
+    HarpoonBorder = { link = "Normal" },
+    HarpoonWindow = { link = "Normal" },
+    -- }}}
   }
+
+  for group, hl in pairs(config.overrides) do
+    if hlgroups[group] and not vim.tbl_isempty(hl) then
+      hlgroups[group].link = nil
+    end
+
+    hlgroups[group] = vim.tbl_extend("force", hlgroups[group] or {}, hl)
+  end
 
   setup_terminal_colors(colors)
 

@@ -2,6 +2,7 @@ local M = {}
 
 M.setup = function(config)
   config = vim.tbl_extend("force", require("gruvbox").config, config or {})
+  local bg = vim.o.background
 
   local colors = {
     dark0_hard = "#1d2021",
@@ -63,7 +64,7 @@ M.setup = function(config)
   local orange = colors.bright_orange
   local gray = colors.gray
 
-  if vim.o.background == "light" then
+  if bg == "light" then
     bg0 = colors.light0
     bg1 = colors.light1
     bg2 = colors.light2
@@ -84,7 +85,6 @@ M.setup = function(config)
   end
 
   -- handle light/dark contrast settings
-  local bg = vim.o.background
   local contrast = config.contrast
 
   if contrast == "hard" then

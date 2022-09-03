@@ -1,4 +1,4 @@
-local colors = require "gruvbox.colors"
+local colors = require("gruvbox.colors").setup()
 
 return {
   normal = {
