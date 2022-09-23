@@ -1,6 +1,7 @@
 local M = {}
 
-local function setup_terminal_colors(colors)
+M.setup = function(colors)
+  -- terminal colors
   vim.g.terminal_color_0 = colors.bg0
   vim.g.terminal_color_8 = colors.gray
   vim.g.terminal_color_1 = colors.neutral_red
@@ -17,18 +18,14 @@ local function setup_terminal_colors(colors)
   vim.g.terminal_color_14 = colors.aqua
   vim.g.terminal_color_7 = colors.fg4
   vim.g.terminal_color_15 = colors.fg1
-end
 
-M.setup = function(colors, config)
-  config = vim.tbl_extend("force", require("gruvbox").config, config or {})
-
-  local hls_cursor = colors[config.hls_cursor]
-  local hls_highlight = colors[config.hls_highlight]
-  local number_column = colors[config.number_column]
-  local sign_column = colors[config.sign_column]
-  local color_column = colors[config.color_column]
-  local vert_split = colors[config.vert_split]
-  local tabline_sel = colors[config.tabline_sel]
+  local hls_cursor = colors[vim.g.gruvbox_hls_cursor]
+  local hls_highlight = colors[vim.g.gruvbox_hls_highlight]
+  local number_column = colors[vim.g.gruvbox_number_column]
+  local sign_column = colors[vim.g.gruvbox_sign_column]
+  local color_column = colors[vim.g.gruvbox_color_column]
+  local vert_split = colors[vim.g.gruvbox_vert_split]
+  local tabline_sel = colors[vim.g.gruvbox_tabline_sel]
 
   local hlgroups = {
     -- Gruvbox Hi Groups: {{{
@@ -45,35 +42,35 @@ M.setup = function(colors, config)
     GruvboxBg4 = { fg = colors.bg4 },
 
     GruvboxRed = { fg = colors.red },
-    GruvboxRedBold = { fg = colors.red, bold = config.bold },
+    GruvboxRedBold = { fg = colors.red, bold = vim.g.gruvbox_bold },
     GruvboxGreen = { fg = colors.green },
-    GruvboxGreenBold = { fg = colors.green, bold = config.bold },
+    GruvboxGreenBold = { fg = colors.green, bold = vim.g.gruvbox_bold },
     GruvboxYellow = { fg = colors.yellow },
-    GruvboxYellowBold = { fg = colors.yellow, bold = config.bold },
+    GruvboxYellowBold = { fg = colors.yellow, bold = vim.g.gruvbox_bold },
     GruvboxBlue = { fg = colors.blue },
-    GruvboxBlueBold = { fg = colors.blue, bold = config.bold },
+    GruvboxBlueBold = { fg = colors.blue, bold = vim.g.gruvbox_bold },
     GruvboxPurple = { fg = colors.purple },
-    GruvboxPurpleBold = { fg = colors.purple, bold = config.bold },
+    GruvboxPurpleBold = { fg = colors.purple, bold = vim.g.gruvbox_bold },
     GruvboxAqua = { fg = colors.aqua },
-    GruvboxAquaBold = { fg = colors.aqua, bold = config.bold },
+    GruvboxAquaBold = { fg = colors.aqua, bold = vim.g.gruvbox_bold },
     GruvboxOrange = { fg = colors.orange },
-    GruvboxOrangeBold = { fg = colors.orange, bold = config.bold },
+    GruvboxOrangeBold = { fg = colors.orange, bold = vim.g.gruvbox_bold },
 
-    GruvboxRedSign = { fg = colors.red, bg = sign_column, reverse = config.invert_signs },
-    GruvboxGreenSign = { fg = colors.green, bg = sign_column, reverse = config.invert_signs },
-    GruvboxYellowSign = { fg = colors.yellow, bg = sign_column, reverse = config.invert_signs },
-    GruvboxBlueSign = { fg = colors.blue, bg = sign_column, reverse = config.invert_signs },
-    GruvboxPurpleSign = { fg = colors.purple, bg = sign_column, reverse = config.invert_signs },
-    GruvboxAquaSign = { fg = colors.aqua, bg = sign_column, reverse = config.invert_signs },
-    GruvboxOrangeSign = { fg = colors.orange, bg = sign_column, reverse = config.invert_signs },
+    GruvboxRedSign = { fg = colors.red, bg = sign_column, reverse = vim.g.gruvbox_invert_signs },
+    GruvboxGreenSign = { fg = colors.green, bg = sign_column, reverse = vim.g.gruvbox_invert_signs },
+    GruvboxYellowSign = { fg = colors.yellow, bg = sign_column, reverse = vim.g.gruvbox_invert_signs },
+    GruvboxBlueSign = { fg = colors.blue, bg = sign_column, reverse = vim.g.gruvbox_invert_signs },
+    GruvboxPurpleSign = { fg = colors.purple, bg = sign_column, reverse = vim.g.gruvbox_invert_signs },
+    GruvboxAquaSign = { fg = colors.aqua, bg = sign_column, reverse = vim.g.gruvbox_invert_signs },
+    GruvboxOrangeSign = { fg = colors.orange, bg = sign_column, reverse = vim.g.gruvbox_invert_signs },
 
-    GruvboxRedUnderline = { undercurl = config.undercurl, sp = colors.red },
-    GruvboxGreenUnderline = { undercurl = config.undercurl, sp = colors.green },
-    GruvboxYellowUnderline = { undercurl = config.undercurl, sp = colors.yellow },
-    GruvboxBlueUnderline = { undercurl = config.undercurl, sp = colors.blue },
-    GruvboxPurpleUnderline = { undercurl = config.undercurl, sp = colors.purple },
-    GruvboxAquaUnderline = { undercurl = config.undercurl, sp = colors.aqua },
-    GruvboxOrangeUnderline = { undercurl = config.undercurl, sp = colors.orange },
+    GruvboxRedUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = colors.red },
+    GruvboxGreenUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = colors.green },
+    GruvboxYellowUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = colors.yellow },
+    GruvboxBlueUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = colors.blue },
+    GruvboxPurpleUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = colors.purple },
+    GruvboxAquaUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = colors.aqua },
+    GruvboxOrangeUnderline = { undercurl = vim.g.gruvbox_undercurl, sp = colors.orange },
     -- }}}
 
     -- General UI: {{{
@@ -82,11 +79,11 @@ M.setup = function(colors, config)
     CursorLine = { bg = colors.bg1 },
     CursorColumn = { link = "CursorLine" },
 
-    TabLineFill = { fg = colors.bg4, bg = colors.bg1, reverse = config.invert_tabline },
-    TabLineSel = { fg = tabline_sel, bg = colors.bg1, reverse = config.invert_tabline },
+    TabLineFill = { fg = colors.bg4, bg = colors.bg1, reverse = vim.g.gruvbox_invert_tabline },
+    TabLineSel = { fg = tabline_sel, bg = colors.bg1, reverse = vim.g.gruvbox_invert_tabline },
     TabLine = { link = "TabLineFill" },
 
-    MatchParen = { bg = colors.bg3, bold = config.bold },
+    MatchParen = { bg = colors.bg3, bold = vim.g.gruvbox_bold },
 
     ColorColumn = { bg = color_column },
     Conceal = { fg = colors.blue },
@@ -95,28 +92,28 @@ M.setup = function(colors, config)
     NonText = { link = "GruvboxBg2" },
     SpecialKey = { link = "GruvboxFg4" },
 
-    Visual = { bg = colors.bg3, reverse = config.invert_selection },
+    Visual = { bg = colors.bg3, reverse = vim.g.gruvbox_invert_selection },
     VisualNOS = { link = "Visual" },
 
-    Search = { fg = hls_highlight, bg = colors.bg0, reverse = config.inverse },
-    IncSearch = { fg = hls_cursor, bg = colors.bg0, reverse = config.inverse },
+    Search = { fg = hls_highlight, bg = colors.bg0, reverse = vim.g.gruvbox_inverse },
+    IncSearch = { fg = hls_cursor, bg = colors.bg0, reverse = vim.g.gruvbox_inverse },
 
-    QuickFixLine = { fg = colors.bg0, bg = colors.yellow, bold = config.bold },
+    QuickFixLine = { fg = colors.bg0, bg = colors.yellow, bold = vim.g.gruvbox_bold },
 
-    Underlined = { fg = colors.blue, underline = config.underline },
+    Underlined = { fg = colors.blue, underline = vim.g.gruvbox_underline },
 
-    StatusLine = { fg = colors.bg2, bg = colors.fg1, reverse = config.inverse },
-    StatusLineNC = { fg = colors.bg1, bg = colors.fg4, reverse = config.inverse },
+    StatusLine = { fg = colors.bg2, bg = colors.fg1, reverse = vim.g.gruvbox_inverse },
+    StatusLineNC = { fg = colors.bg1, bg = colors.fg4, reverse = vim.g.gruvbox_inverse },
 
     VertSplit = { fg = colors.bg3, bg = vert_split },
 
-    WildMenu = { fg = colors.blue, bg = colors.bg2, bold = config.bold },
+    WildMenu = { fg = colors.blue, bg = colors.bg2, bold = vim.g.gruvbox_bold },
 
     Directory = { link = "GruvboxGreenBold" },
 
     Title = { link = "GruvboxGreenBold" },
 
-    ErrorMsg = { fg = colors.bg0, bg = colors.red, bold = config.bold },
+    ErrorMsg = { fg = colors.bg0, bg = colors.red, bold = vim.g.gruvbox_bold },
 
     MoreMsg = { link = "GruvboxYellowBold" },
     ModeMsg = { link = "GruvboxYellowBold" },
@@ -127,34 +124,34 @@ M.setup = function(colors, config)
     --- Gutter: {{{
     LineNr = { fg = colors.bg4, bg = number_column },
     SignColumn = { bg = sign_column },
-    Folded = { fg = colors.gray, bg = colors.bg1, italic = config.italic },
+    Folded = { fg = colors.gray, bg = colors.bg1, italic = vim.g.gruvbox_italic },
     FoldColumn = { fg = colors.gray, bg = colors.bg1 },
     --- }}}
 
     -- Cursor: {{{
-    Cursor = { reverse = config.inverse },
+    Cursor = { reverse = vim.g.gruvbox_inverse },
     vCursor = { link = "Cursor" },
     iCursor = { link = "Cursor" },
     lCursor = { link = "Cursor" },
     -- }}}
 
     -- Syntax Highlighting: {{{
-    Special = config.improved_strings and {
+    Special = vim.g.gruvbox_improved_strings and {
       fg = colors.orange,
       bg = colors.bg1,
-      italic = config.italic_strings,
+      italic = vim.g.gruvbox_italic_strings,
     } or { link = "GruvboxOrange" },
 
-    Comment = { fg = colors.gray, italic = config.italicize_comments },
-    Todo = { fg = colors.fg0, bold = config.bold, italic = config.italic },
-    Error = { fg = colors.red, bold = config.bold, reverse = config.inverse },
+    Comment = { fg = colors.gray, italic = vim.g.gruvbox_italicize_comments },
+    Todo = { fg = colors.fg0, bold = vim.g.gruvbox_bold, italic = vim.g.gruvbox_italic },
+    Error = { fg = colors.red, bold = vim.g.gruvbox_bold, reverse = vim.g.gruvbox_inverse },
 
     Statement = { link = "GruvboxRed" },
     Conditional = { link = "GruvboxRed" },
     Repeat = { link = "GruvboxRed" },
     Label = { link = "GruvboxRed" },
     Exception = { link = "GruvboxRed" },
-    Operator = { fg = colors.orange, italic = config.italicize_operators },
+    Operator = { fg = colors.orange, italic = vim.g.gruvbox_italicize_operators },
     Keyword = { link = "GruvboxRed" },
 
     Identifier = { link = "GruvboxBlue" },
@@ -168,13 +165,13 @@ M.setup = function(colors, config)
 
     Constant = { link = "GruvboxPurple" },
     Character = { link = "GruvboxPurple" },
-    String = not config.improved_strings and {
+    String = not vim.g.gruvbox_improved_strings and {
       fg = colors.green,
-      italic = config.italic_strings,
+      italic = vim.g.gruvbox_italic_strings,
     } or {
       fg = colors.fg1,
       bg = colors.bg1,
-      italic = config.italic_strings,
+      italic = vim.g.gruvbox_italic_strings,
     },
     Boolean = { link = "GruvboxPurple" },
     Number = { link = "GruvboxPurple" },
@@ -188,23 +185,23 @@ M.setup = function(colors, config)
 
     -- Completion Menu: {{{
     Pmenu = { fg = colors.fg1, bg = colors.bg2 },
-    PmenuSel = { fg = colors.bg2, bg = colors.blue, bold = config.bold },
+    PmenuSel = { fg = colors.bg2, bg = colors.blue, bold = vim.g.gruvbox_bold },
     PmenuSbar = { bg = colors.bg2 },
     PmenuThumb = { bg = colors.bg4 },
     -- }}}
 
     -- Diffs: {{{
-    DiffDelete = { fg = colors.red, bg = colors.bg0, reverse = config.inverse },
-    DiffAdd = { fg = colors.green, bg = colors.bg0, reverse = config.inverse },
-    DiffChange = { fg = colors.aqua, bg = colors.bg0, reverse = config.inverse },
-    DiffText = { fg = colors.yellow, bg = colors.bg0, reverse = config.inverse },
+    DiffDelete = { fg = colors.red, bg = colors.bg0, reverse = vim.g.gruvbox_inverse },
+    DiffAdd = { fg = colors.green, bg = colors.bg0, reverse = vim.g.gruvbox_inverse },
+    DiffChange = { fg = colors.aqua, bg = colors.bg0, reverse = vim.g.gruvbox_inverse },
+    DiffText = { fg = colors.yellow, bg = colors.bg0, reverse = vim.g.gruvbox_inverse },
     -- }}}
 
     -- Spelling: {{{
-    SpellCap = not config.improved_warnings and { link = "GruvboxBlueUnderline" } or {
+    SpellCap = not vim.g.gruvbox_improved_warnings and { link = "GruvboxBlueUnderline" } or {
       fg = colors.green,
-      bold = config.bold,
-      italic = config.italic,
+      bold = vim.g.gruvbox_bold,
+      italic = vim.g.gruvbox_italic,
     },
     SpellBad = { link = "GruvboxRedUnderline" },
     SpellLocal = { link = "GruvboxAquaUnderline" },
@@ -248,6 +245,11 @@ M.setup = function(colors, config)
     GitSignsAdd = { link = "GruvboxGreenSign" },
     GitSignsChange = { link = "GruvboxAquaSign" },
     GitSignsDelete = { link = "GruvboxRedSign" },
+    -- }}}
+
+    -- Termdebug: {{{
+    debugPC = { fg = colors.NONE, bg = colors.faded_blue },
+    debugBreakpoint = { link = "GruvboxRedSign" },
     -- }}}
 
     -- Dirvish: {{{
@@ -308,6 +310,14 @@ M.setup = function(colors, config)
     CmpItemKindTypeParameter = { link = "GruvboxYellow" },
     -- }}}
 
+    -- Dashboard: {{{
+    DashboardHeader = { link = "GruvboxYellowBold" },
+    DashboardCenter = { link = "GruvboxGreen" },
+    DashboardCenterIcon = { link = "GruvboxAqua" },
+    DashboardShortCut = { link = "GruvboxBlue" },
+    DashboardFooter = { link = "GruvboxPurple" },
+    -- }}}
+
     --  Filetype specific
     -- Diff: {{{
     diffAdded = { link = "GruvboxGreen" },
@@ -318,10 +328,44 @@ M.setup = function(colors, config)
     diffLine = { link = "GruvboxBlue" },
     -- }}}
 
+    -- html: {{{
+    htmlTag = { link = "GruvboxAquaBold" },
+    htmlEndTag = { link = "GruvboxAquaBold" },
+    htmlTagName = { link = "GruvboxBlue" },
+    htmlArg = { link = "GruvboxOrange" },
+    htmlTagN = { link = "GruvboxFg1" },
+    htmlSpecialTagName = { link = "GruvboxBlue" },
+    htmlLink = { fg = colors.fg4, underline = vim.g.gruvbox_underline },
+    htmlSpecialChar = { link = "GruvboxRed" },
+    htmlBold = { fg = colors.fg0, bg = colors.bg0, bold = vim.g.gruvbox_bold },
+    htmlBoldUnderline = {
+      fg = colors.fg0,
+      bg = colors.bg0,
+      bold = vim.g.gruvbox_bold,
+      underline = vim.g.gruvbox_underline,
+    },
+    htmlBoldItalic = { fg = colors.fg0, bg = colors.bg0, bold = vim.g.gruvbox_bold, italic = vim.g.gruvbox_italic },
+    htmlBoldUnderlineItalic = {
+      fg = colors.fg0,
+      bg = colors.bg0,
+      bold = vim.g.gruvbox_bold,
+      italic = vim.g.gruvbox_italic,
+      underline = vim.g.gruvbox_underline,
+    },
+    htmlUnderline = { fg = colors.fg0, bg = colors.bg0, underline = vim.g.gruvbox_underline },
+    htmlUnderlineItalic = {
+      fg = colors.fg0,
+      bg = colors.bg0,
+      italic = vim.g.gruvbox_italic,
+      underline = vim.g.gruvbox_underline,
+    },
+    htmlItalic = { fg = colors.fg0, bg = colors.bg0, bold = vim.g.gruvbox_italic },
+    -- }}}
+
     -- Markdown: {{{
-    markdownItalic = { fg = colors.fg3, italic = config.italic },
-    markdownBold = { fg = colors.fg3, bold = config.bold },
-    markdownBoldItalic = { fg = colors.fg3, bold = config.bold, italic = config.italic },
+    markdownItalic = { fg = colors.fg3, italic = vim.g.gruvbox_italic },
+    markdownBold = { fg = colors.fg3, bold = vim.g.gruvbox_bold },
+    markdownBoldItalic = { fg = colors.fg3, bold = vim.g.gruvbox_bold, italic = vim.g.gruvbox_italic },
     markdownH1 = { link = "GruvboxGreenBold" },
     markdownH2 = { link = "GruvboxGreenBold" },
     markdownH3 = { link = "GruvboxYellowBold" },
@@ -342,18 +386,25 @@ M.setup = function(colors, config)
     markdownHeadingDelimiter = { link = "GruvboxOrange" },
     markdownUrl = { link = "GruvboxPurple" },
     markdownUrlTitleDelimiter = { link = "GruvboxGreen" },
-    markdownLinkText = { fg = colors.gray, underline = config.underline },
+    markdownLinkText = { fg = colors.gray, underline = vim.g.gruvbox_underline },
     markdownIdDeclaration = { link = "markdownLinkText" },
     -- }}}
 
-    --- Misc:
+    -- mail: {{{
+    mailQuoted1 = { link = "GruvboxAqua" },
+    mailQuoted2 = { link = "GruvboxPurple" },
+    mailQuoted3 = { link = "GruvboxYellow" },
+    mailQuoted4 = { link = "GruvboxGreen" },
+    mailQuoted5 = { link = "GruvboxRed" },
+    mailQuoted6 = { link = "GruvboxOrange" },
+    mailSignature = { link = "Comment" },
+    -- }}}
+
+    -- misc
     -- Neovim: {{{
     healthError = { fg = colors.bg0, bg = colors.red },
     healthSuccess = { fg = colors.bg0, bg = colors.green },
     healthWarning = { fg = colors.bg0, bg = colors.yellow },
-
-    Winbar = { link = "StatusLine" },
-    WinbarNC = { link = "StatusLineNC" },
     --}}}
 
     -- harpoon {{{
@@ -361,16 +412,6 @@ M.setup = function(colors, config)
     HarpoonWindow = { link = "Normal" },
     -- }}}
   }
-
-  for group, hl in pairs(config.overrides) do
-    if hlgroups[group] and not vim.tbl_isempty(hl) then
-      hlgroups[group].link = nil
-    end
-
-    hlgroups[group] = vim.tbl_extend("force", hlgroups[group] or {}, hl)
-  end
-
-  setup_terminal_colors(colors)
 
   return hlgroups
 end
