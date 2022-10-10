@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function()
+M.setup = function(configs)
   local bg = vim.o.background
 
   local colors = {
@@ -83,12 +83,12 @@ M.setup = function()
     orange = colors.faded_orange
   end
 
-  if vim.g.gruvbox_contrast_dark ~= "medium" then
-    bg0 = colors[bg .. "0_" .. vim.g.gruvbox_contrast_dark]
+  if configs.contrast_dark ~= "medium" then
+    bg0 = colors[bg .. "0_" .. configs.contrast_dark]
   end
 
-  if vim.g.gruvbox_contrast_light ~= "medium" then
-    bg0 = colors[bg .. "0_" .. vim.g.gruvbox_contrast_light]
+  if configs.contrast_light ~= "medium" then
+    bg0 = colors[bg .. "0_" .. configs.contrast_light]
   end
 
   colors.bg0 = bg0

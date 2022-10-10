@@ -32,31 +32,16 @@ M.configs = {
 }
 
 M.setup = function(opts)
-  M.configs = vim.tbl_extend("force", M.configs, opts or {})
-
-  if opts.inverse == false then
-    M.configs.invert_selection = false
+  local configs = vim.tbl_extend("force", M.configs, opts or {})
+  if not opts.inverse then
+    configs.invert_selection = false
   end
 
-  if opts.italic == false then
-    M.configs.italicize_comments = false
-  end
-end
-
-M.load = function()
-  if vim.g.colors_name then
-    vim.cmd "hi clear"
+  if not opts.italic then
+    configs.italicize_comments = false
   end
 
-  vim.g.colors_name = "gruvbox"
-  vim.opt.termguicolors = true
-
-  local colors = require("gruvbox.colors").setup(M.configs)
-  local hlgroups = require("gruvbox.hlgroups").setup(colors, M.configs)
-
-  for group, settings in pairs(hlgroups) do
-    vim.api.nvim_set_hl(0, group, settings)
-  end
+  return configs
 end
 
 return M
