@@ -27,6 +27,7 @@ M.configs = {
   number_column = "NONE",
   sign_column = "bg1",
   color_column = "bg1",
+  cursorline = "bg1",
   vert_split = "bg0",
   tabline_sel = "green",
 }
@@ -45,7 +46,7 @@ end
 
 M.load = function()
   if vim.g.colors_name then
-    vim.cmd "hi clear"
+    vim.cmd("hi clear")
   end
 
   vim.g.colors_name = "gruvbox"

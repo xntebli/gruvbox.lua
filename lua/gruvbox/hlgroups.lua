@@ -24,6 +24,7 @@ M.setup = function(colors, configs)
   local number_column = colors[configs.number_column]
   local sign_column = colors[configs.sign_column]
   local color_column = colors[configs.color_column]
+  local cursorline = colors[configs.cursorline]
   local vert_split = colors[configs.vert_split]
   local tabline_sel = colors[configs.tabline_sel]
 
@@ -74,9 +75,9 @@ M.setup = function(colors, configs)
     -- }}}
 
     -- General UI: {{{
-    Normal = { fg = colors.fg1, bg = colors.bg0 },
+    Normal = { fg = colors.fg1, bg = configs.transparent and colors.NONE or colors.bg0 },
 
-    CursorLine = { bg = colors.bg1 },
+    CursorLine = { bg = cursorline },
     CursorColumn = { link = "CursorLine" },
 
     TabLineFill = { fg = colors.bg4, bg = colors.bg1, reverse = configs.invert_tabline },
@@ -87,7 +88,7 @@ M.setup = function(colors, configs)
 
     ColorColumn = { bg = color_column },
     Conceal = { fg = colors.blue },
-    CursorLineNr = { fg = colors.yellow, bg = colors.bg1 },
+    CursorLineNr = { fg = colors.yellow, bg = cursorline },
 
     NonText = { link = "GruvboxBg2" },
     SpecialKey = { link = "GruvboxFg4" },
@@ -401,14 +402,20 @@ M.setup = function(colors, configs)
     -- }}}
 
     -- Neovim: {{{
-    healthError = { fg = colors.bg0, bg = colors.red },
-    healthSuccess = { fg = colors.bg0, bg = colors.green },
-    healthWarning = { fg = colors.bg0, bg = colors.yellow },
+    healthError = { link = "GruvboxRed" },
+    healthSuccess = { link = "GruvboxGreen" },
+    healthWarning = { link = "GruvboxYellow" },
+
+    NormalBorder = { link = "GruvboxFg1" },
     --}}}
 
     -- harpoon {{{
-    HarpoonBorder = { link = "GruvboxFg1" },
+    HarpoonBorder = { link = "NormalBorder" },
     HarpoonWindow = { fg = colors.fg1, bg = colors.NONE },
+    -- }}}
+
+    -- treesitter-context: {{{
+    TreesitterContext = { bg = colors.bg3 },
     -- }}}
   }
 
