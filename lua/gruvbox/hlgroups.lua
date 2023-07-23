@@ -234,7 +234,7 @@ M.setup = function(colors, configs)
     -- }}}
 
     -- Treesitter: {{{
-    TSKeywordOperator = { link = "GruvboxRed" },
+    ["@keyword.operator"] = { link = "GruvboxRed" },
     -- }}}
 
     -- GitCommit: {{{
@@ -242,7 +242,7 @@ M.setup = function(colors, configs)
     gitcommitDiscardedFile = { link = "GruvboxRed" },
     -- }}}
 
-    -- gitsigns.nvim {{{
+    -- Gitsigns.nvim {{{
     GitSignsAdd = { link = "GruvboxGreenSign" },
     GitSignsChange = { link = "GruvboxAquaSign" },
     GitSignsDelete = { link = "GruvboxRedSign" },
@@ -285,7 +285,7 @@ M.setup = function(colors, configs)
     TelescopePrompt = { link = "TelescopeNormal" },
     -- }}}
 
-    -- nvim-cmp: {{{
+    -- Cmp: {{{
     CmpItemAbbr = { link = "GruvboxFg0" },
     CmpItemAbbrDeprecated = { link = "GruvboxFg1" },
     CmpItemAbbrMatch = { link = "GruvboxBlueBold" },
@@ -329,7 +329,7 @@ M.setup = function(colors, configs)
     diffLine = { link = "GruvboxBlue" },
     -- }}}
 
-    -- html: {{{
+    -- Html: {{{
     htmlTag = { link = "GruvboxAquaBold" },
     htmlEndTag = { link = "GruvboxAquaBold" },
     htmlTagName = { link = "GruvboxBlue" },
@@ -391,7 +391,14 @@ M.setup = function(colors, configs)
     markdownIdDeclaration = { link = "markdownLinkText" },
     -- }}}
 
-    -- mail: {{{
+    -- Json: {{{
+    jsonKeyword = { link = "GruvboxGreen" },
+    jsonQuote = { link = "GruvboxGreen" },
+    jsonBraces = { link = "GruvboxFg1" },
+    jsonString = { link = "GruvboxFg1" },
+    -- }}}
+
+    -- Mail: {{{
     mailQuoted1 = { link = "GruvboxAqua" },
     mailQuoted2 = { link = "GruvboxPurple" },
     mailQuoted3 = { link = "GruvboxYellow" },
@@ -405,17 +412,14 @@ M.setup = function(colors, configs)
     healthError = { link = "GruvboxRed" },
     healthSuccess = { link = "GruvboxGreen" },
     healthWarning = { link = "GruvboxYellow" },
-
-    NormalBorder = { link = "GruvboxFg1" },
     --}}}
 
-    -- harpoon {{{
-    HarpoonBorder = { link = "NormalBorder" },
-    HarpoonWindow = { fg = colors.fg1, bg = colors.NONE },
+    -- Harpoon {{{
+    HarpoonBorder = { link = "GruvboxFg1" },
     -- }}}
 
-    -- treesitter-context: {{{
-    TreesitterContext = { bg = colors.bg3 },
+    -- Treesitter Context: {{{
+    TreesitterContext = { bg = colors.bg2 },
     -- }}}
   }
 

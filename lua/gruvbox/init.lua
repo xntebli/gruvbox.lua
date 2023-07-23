@@ -50,7 +50,6 @@ M.load = function()
   end
 
   vim.g.colors_name = "gruvbox"
-  vim.opt.termguicolors = true
 
   local colors = require("gruvbox.colors").setup(M.configs)
   local hlgroups = require("gruvbox.hlgroups").setup(colors, M.configs)
